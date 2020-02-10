@@ -3,14 +3,17 @@ import 'dart:async';
 import 'package:flutter/services.dart';
 
 class Permission {
-  static const MethodChannel channel = const MethodChannel('plugins.ly.com/permission');
+  static const MethodChannel channel =
+      const MethodChannel('plugins.ly.com/permission');
 
-  static Future<List<Permissions>> getPermissionsStatus(List<PermissionName> permissionNameList) async {
+  static Future<List<Permissions>> getPermissionsStatus(
+      List<PermissionName> permissionNameList) async {
     List<String> list = [];
     permissionNameList.forEach((p) {
       list.add(getPermissionString(p));
     });
-    var status = await channel.invokeMethod("getPermissionsStatus", {"permissions": list});
+    var status = await channel
+        .invokeMethod("getPermissionsStatus", {"permissions": list});
     List<Permissions> permissionStatusList = [];
     for (int i = 0; i < status.length; i++) {
       PermissionStatus permissionStatus;
@@ -31,13 +34,16 @@ class Permission {
           permissionStatus = PermissionStatus.notDecided;
           break;
       }
-      permissionStatusList.add(Permissions(permissionNameList[i], permissionStatus));
+      permissionStatusList
+          .add(Permissions(permissionNameList[i], permissionStatus));
     }
     return permissionStatusList;
   }
 
-  static Future<PermissionStatus> getSinglePermissionStatus(PermissionName permissionName) async {
-    var status = await channel.invokeMethod("getSinglePermissionStatus", {"permissionName": getPermissionString(permissionName)});
+  static Future<PermissionStatus> getSinglePermissionStatus(
+      PermissionName permissionName) async {
+    var status = await channel.invokeMethod("getSinglePermissionStatus",
+        {"permissionName": getPermissionString(permissionName)});
     switch (status) {
       case 0:
         return PermissionStatus.allow;
@@ -63,12 +69,14 @@ class Permission {
     }
   }
 
-  static Future<List<Permissions>> requestPermissions(List<PermissionName> permissionNameList) async {
+  static Future<List<Permissions>> requestPermissions(
+      List<PermissionName> permissionNameList) async {
     List<String> list = [];
     permissionNameList.forEach((p) {
       list.add(getPermissionString(p));
     });
-    var status = await channel.invokeMethod("requestPermissions", {"permissions": list});
+    var status =
+        await channel.invokeMethod("requestPermissions", {"permissions": list});
     List<Permissions> permissionStatusList = [];
     for (int i = 0; i < status.length; i++) {
       PermissionStatus permissionStatus;
@@ -89,13 +97,16 @@ class Permission {
           permissionStatus = PermissionStatus.notDecided;
           break;
       }
-      permissionStatusList.add(Permissions(permissionNameList[i], permissionStatus));
+      permissionStatusList
+          .add(Permissions(permissionNameList[i], permissionStatus));
     }
     return permissionStatusList;
   }
 
-  static Future<PermissionStatus> requestSinglePermission(PermissionName permissionName) async {
-    var status = await channel.invokeMethod("requestSinglePermission", {"permissionName": getPermissionString(permissionName)});
+  static Future<PermissionStatus> requestSinglePermission(
+      PermissionName permissionName) async {
+    var status = await channel.invokeMethod("requestSinglePermission",
+        {"permissionName": getPermissionString(permissionName)});
     switch (status) {
       case 0:
         return PermissionStatus.allow;
@@ -146,9 +157,19 @@ enum PermissionName {
   // Android
   Sensors,
   // Android
-  SMS,
+  SEND_SMS,
   // Android
-  Storage
+  RECEIVE_SMS,
+  // Android
+  READ_SMS,
+  // Android
+  RECEIVE_WAP_PUSH,
+  // Android
+  RECEIVE_MMS,
+  // Android
+  WRITE_STORAGE,
+  // Android
+  READ_STORAGE
 }
 
 enum PermissionStatus { allow, deny, notDecided, notAgain, whenInUse, always }
@@ -190,11 +211,29 @@ String getPermissionString(PermissionName permissions) {
     case PermissionName.Sensors:
       res = 'Sensors';
       break;
-    case PermissionName.SMS:
-      res = 'SMS';
+    case PermissionName.READ_SMS:
+      res = 'READ_SMS';
       break;
-    case PermissionName.Storage:
-      res = 'Storage';
+    case PermissionName.SEND_SMS:
+      res = 'SEND_SMS';
+      break;
+    case PermissionName.RECEIVE_SMS:
+      res = 'RECEIVE_SMS';
+      break;
+    case PermissionName.READ_SMS:
+      res = 'READ_SMS';
+      break;
+    case PermissionName.RECEIVE_WAP_PUSH:
+      res = 'RECIEVE_WAP_PUSH';
+      break;
+    case PermissionName.RECEIVE_MMS:
+      res = 'RECEIVE_MMS';
+      break;
+    case PermissionName.WRITE_STORAGE:
+      res = 'WRITE_STORAGE';
+      break;
+    case PermissionName.READ_STORAGE:
+      res = 'READ_STORAGE';
       break;
     default:
       res = '';

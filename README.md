@@ -18,14 +18,26 @@ enum PermissionName {
   Microphone,
   // both
   Location,
+  // iOS
+  WhenInUse,
   // Android
   Phone,
   // Android
   Sensors,
   // Android
-  SMS,
+  SEND_SMS,
   // Android
-  Storage
+  RECEIVE_SMS,
+  // Android
+  READ_SMS,
+  // Android
+  RECEIVE_WAP_PUSH,
+  // Android
+  RECEIVE_MMS,
+  // Android
+  WRITE_STORAGE,
+  // Android
+  READ_STORAGE
 }
 ```
 
