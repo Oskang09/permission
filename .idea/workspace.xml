@@ -14,19 +14,13 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2b85d4a2-4fd5-4eb7-ae45-0291a91c1825" name="Default" comment="add iOS Storage">
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/src/main/java/com/ly/permission/PermissionPlugin.java" beforeDir="false" afterPath="$PROJECT_DIR$/android/src/main/java/com/ly/permission/PermissionPlugin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/permission.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/permission.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/permission_android.iml" beforeDir="false" afterPath="$PROJECT_DIR$/permission_android.iml" afterDir="false" />
-    </list>
+    <list default="true" id="2b85d4a2-4fd5-4eb7-ae45-0291a91c1825" name="Default" comment="add iOS Storage" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="A9_6.3inch" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="8e9de461" />
   <component name="FindInProjectRecents">
     <findStrings>
       <find>requestPermission</find>
